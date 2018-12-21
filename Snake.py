@@ -27,8 +27,8 @@ DOWN_ARROW = curses.KEY_DOWN
 UP_ARROW = curses.KEY_UP
 RIGHT_ARROW = curses.KEY_RIGHT
 LEFT_ARROW = curses.KEY_LEFT
-snk_x = sw/4
-snk_y = sh/2
+snk_x = sw//4
+snk_y = sh//2
 
 snake = [
     [snk_y, snk_x],
@@ -36,7 +36,7 @@ snake = [
     [snk_y, snk_x-2],
     [snk_y, snk_x-3]
 ]
-food = [sh/2, sw/2]
+food = [sh//2, sw//2]
 w.addch(food[0], food[1], curses.ACS_PI)
 
 key = curses.KEY_RIGHT
@@ -54,14 +54,14 @@ while True:
     ##Implement me (Students will be responsible for implementing the commented
     ##out section)
 
-    # if key == DOWN_ARROW:
-    #     new_head[0] += 1
-    # if key == UP_ARROW:
-    #     new_head[0] -= 1
-    # if key == LEFT_ARROW:
-    #     new_head[1] -= 1
-    # if key == RIGHT_ARROW:
-    #     new_head[1] += 1
+    if key == DOWN_ARROW:
+        new_head[0] += 1
+    if key == UP_ARROW:
+        new_head[0] -= 1
+    if key == LEFT_ARROW:
+        new_head[1] -= 1
+    if key == RIGHT_ARROW:
+        new_head[1] += 1
 
     ##DONOT CHANGE CODE BELOW
     snake.insert(0, new_head)
