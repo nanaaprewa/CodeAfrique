@@ -25,44 +25,31 @@ sh, sw = s.getmaxyx()
 w = curses.newwin(sh+1, sw+1, 0, 0)
 w.keypad(1)
 w.timeout(100)
-<<<<<<< HEAD
 maxScore = 0
+scores = []
 score = 0
 snk_x = sw/4
 snk_y = sh/2
-f = open("high score","a+")
-f.close()
-=======
-DOWN_ARROW = curses.KEY_DOWN
-UP_ARROW = curses.KEY_UP
-RIGHT_ARROW = curses.KEY_RIGHT
-LEFT_ARROW = curses.KEY_LEFT
-snk_x = sw//4
-snk_y = sh//2
-
->>>>>>> 4f713562de55412272e05a8e46c82c9f32110dfb
 snake = [
     [snk_y, snk_x],
     [snk_y, snk_x-1],
     [snk_y, snk_x-2],
     [snk_y, snk_x-3]
 ]
-<<<<<<< HEAD
 
 food = [sh/2, sw/2]
-=======
-food = [sh//2, sw//2]
->>>>>>> 4f713562de55412272e05a8e46c82c9f32110dfb
 w.addch(food[0], food[1], curses.ACS_PI)
 
 key = curses.KEY_RIGHT
 color = random.randint(1,6)
 curses.init_pair(1, color, curses.COLOR_WHITE)
 curses.init_pair(2, 2, curses.COLOR_WHITE)
-
-with open("high score","r") as f:
-    scores = [int(i)  for j in f for i in j.strip().split(" ") if i.isdigit()]
-f.close()
+try:
+    with open("high score","r") as f:
+        scores = [int(i)  for j in f for i in j.strip().split(" ") if i.isdigit()]
+        f.close()
+except:
+    print("File doesn't exist")
 if len(scores) > 0:
     maxScore = max(scores)
 
@@ -91,7 +78,6 @@ while True:
 
 ### Students are responsible for implementing the commented out  code
     new_head = [snake[0][0], snake[0][1]]
-<<<<<<< HEAD
     if key == curses.KEY_DOWN:
         new_head[0] += 1
     if key == curses.KEY_UP:
@@ -102,22 +88,6 @@ while True:
         new_head[1] += 1
 
     ### DO NOT CHANGE CODE BELOW
-=======
-    ###DONOT CHANGE CODE ABOVE
-    ##Implement me (Students will be responsible for implementing the commented
-    ##out section)
-
-    if key == DOWN_ARROW:
-        new_head[0] += 1
-    if key == UP_ARROW:
-        new_head[0] -= 1
-    if key == LEFT_ARROW:
-        new_head[1] -= 1
-    if key == RIGHT_ARROW:
-        new_head[1] += 1
-
-    ##DONOT CHANGE CODE BELOW
->>>>>>> 4f713562de55412272e05a8e46c82c9f32110dfb
     snake.insert(0, new_head)
 
      # If snake crosses the boundaries, make it enter from the other side
