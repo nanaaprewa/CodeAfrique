@@ -2,10 +2,10 @@
 This method implements the popular snake game we all use to play as kids:
 You have a snake and a food. The snake moves towards the food to eat it and
 grows anytime it eats the food.
-You are responsible for implementing code that conntrols the
+You are responsible for implementing code that controls the
 navigation of the snake. That is, if the up key is pressed, the snake should
 move, if the down key is pressed, it should move down etc.
-You're given an given the variable "key", which is the key that the user pressed
+You're given the variable "key", which is the key that the user pressed
 on the keyboard, and new_head which is the current position of the snake.
 
 Structure of new_head:
